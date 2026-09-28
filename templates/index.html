@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Heart Disease Prediction | ViharaTech</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<div class="background-glow glow-one"></div>
+<div class="background-glow glow-two"></div>
+
+<header class="top-header">
+
+    <div class="brand">
+
+        <img src="{{ url_for('static', filename='images/viharatech_logo.jpeg') }}"
+             alt="ViharaTech Logo"
+             class="vihara-logo">
+
+        <div class="brand-text">
+            <span>VIHARATECH</span>
+            <small>AI • DATA SCIENCE • TECHNOLOGY</small>
+        </div>
+
+    </div>
+
+
+    <div class="profile">
+
+        <div class="profile-info">
+            <strong>Sakhamuri Vijay Bhargav</strong>
+            <span>Data Scientist Intern</span>
+        </div>
+
+        <img src="{{ url_for('static', filename='images/vijay.jpg') }}"
+             alt="Sakhamuri Vijay Bhargav"
+             class="profile-image">
+
+    </div>
+
+</header>
+
+
+<main class="main-container">
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="ai-badge">
+            <span class="pulse"></span>
+            MACHINE LEARNING PROJECT
+        </div>
+
+        <h1>
+            Heart Disease
+            <span>Prediction</span>
+        </h1>
+
+        <p>
+            An AI-powered machine learning system that analyzes
+            patient health parameters and predicts the possibility
+            of heart disease.
+        </p>
+
+        <div class="hero-stats">
+
+            <div class="stat">
+                <strong>13</strong>
+                <span>Health Parameters</span>
+            </div>
+
+            <div class="stat">
+                <strong>ML</strong>
+                <span>Prediction Model</span>
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- MAIN CARD -->
+
+    <section class="prediction-card">
+
+        <div class="card-header">
+
+            <div>
+                <span class="section-label">PATIENT ASSESSMENT</span>
+
+                <h2>Enter Patient Information</h2>
+
+                <p>
+                    Provide the patient's health parameters below
+                    to generate a machine learning prediction.
+                </p>
+            </div>
+
+            <div class="heart-icon">
+                ♥
+            </div>
+
+        </div>
+
+
+        <form action="/predict" method="POST">
+
+            <div class="form-grid">
+
+                <!-- AGE -->
+
+                <div class="input-group">
+
+                    <label>Age</label>
+
+                    <div class="input-wrapper">
+                        <span class="input-icon">◉</span>
+
+                        <input type="number"
+                               name="age"
+                               min="1"
+                               max="120"
+                               placeholder="e.g. 45"
+                               required>
+                    </div>
+
+                </div>
+
+
+                <!-- SEX -->
+
+                <div class="input-group">
+
+                    <label>Sex</label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">●</span>
+
+                        <select name="sex" required>
+                            <option value="">Select sex</option>
+                            <option value="1">Male</option>
+                            <option value="0">Female</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CHEST PAIN -->
+
+                <div class="input-group">
+
+                    <label>Chest Pain Type</label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">♥</span>
+
+                        <select name="cp" required>
+                            <option value="">Select type</option>
+                            <option value="0">Typical Angina</option>
+                            <option value="1">Atypical Angina</option>
+                            <option value="2">Non-anginal Pain</option>
+                            <option value="3">Asymptomatic</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BLOOD PRESSURE -->
+
+                <div class="input-group">
+
+                    <label>Resting Blood Pressure</label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">↕</span>
+
+                        <input type="number"
+                               name="trestbps"
+                               min="50"
+                               max="250"
+                               placeholder="mm Hg"
+                               required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CHOLESTEROL -->
+
+                <div class="input-group">
+
+                    <label>Cholesterol</label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">◈</span>
+
+                        <input type="number"
+                               name="chol"
+                               min="50"
+                               max="700"
+                               placeholder="mg/dl"
+                               required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FBS -->
+
+                <div class="input-group">
+
+                    <label>Fasting Blood Sugar</label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">◉</span>
+
+                        <select name="fbs" required>
+                            <option value="">Select</option>
+                            <option value="0">≤ 120 mg/dl</option>
+                            <option value="1">> 120 mg/dl</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ECG -->
+
+                <div class="input-group">
+
+                    <label>Resting ECG</label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">⌁</span>
+
+                        <select name="restecg" required>
+                            <option value="">Select ECG result</option>
+                            <option value="0">Normal</option>
+                            <option value="1">ST-T Wave Abnormality</option>
+                            <option value="2">Left Ventricular Hypertrophy</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MAX HEART RATE -->
+
+                <div class="input-group">
+
+                    <label>Maximum Heart Rate</label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">♥</span>
+
+                        <input type="number"
+                               name="thalach"
+                               min="50"
+                               max="250"
+                               placeholder="bpm"
+                               required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EXERCISE ANGINA -->
+
+                <div class="input-group">
+
+                    <label>Exercise Induced Angina</label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">⚡</span>
+
+                        <select name="exang" required>
+                            <option value="">Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OLDPEAK -->
+
+                <div class="input-group">
+
+                    <label>Oldpeak</label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">∿</span>
+
+                        <input type="number"
+                               name="oldpeak"
+                               step="0.1"
+                               min="0"
+                               max="10"
+                               placeholder="e.g. 1.5"
+                               required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SLOPE -->
+
+                <div class="input-group">
+
+                    <label>Slope</label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">↗</span>
+
+                        <select name="slope" required>
+                            <option value="">Select slope</option>
+                            <option value="0">Upsloping</option>
+                            <option value="1">Flat</option>
+                            <option value="2">Downsloping</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CA -->
+
+                <div class="input-group">
+
+                    <label>Major Vessels (CA)</label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">◌</span>
+
+                        <select name="ca" required>
+                            <option value="">Select number</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- THAL -->
+
+                <div class="input-group">
+
+                    <label>Thalassemia</label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">◆</span>
+
+                        <select name="thal" required>
+                            <option value="">Select result</option>
+                            <option value="0">Normal</option>
+                            <option value="1">Fixed Defect</option>
+                            <option value="2">Reversible Defect</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <button type="submit" class="predict-button">
+
+                <span>♥</span>
+
+                Predict Heart Disease
+
+                <span class="arrow">→</span>
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- RESULT -->
+
+    {% if prediction %}
+
+    <section class="result-card">
+
+        <div class="result-title">
+            <span class="section-label">PREDICTION RESULT</span>
+            <h2>Analysis Complete</h2>
+        </div>
+
+
+        <div class="result-main">
+
+            <div class="result-icon">
+                {% if "No Heart" in prediction %}
+                    ✓
+                {% else %}
+                    !
+                {% endif %}
+            </div>
+
+            <div class="result-content">
+
+                <span>MODEL PREDICTION</span>
+
+                <h3>{{ prediction }}</h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="probability-grid">
+
+            <div class="probability-card">
+
+                <div class="probability-header">
+                    <span>Heart Disease</span>
+                    <strong>{{ heart_probability }}%</strong>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-fill"
+                         style="width: {{ heart_probability }}%;">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="probability-card">
+
+                <div class="probability-header">
+                    <span>No Heart Disease</span>
+                    <strong>{{ no_heart_probability }}%</strong>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-fill second"
+                         style="width: {{ no_heart_probability }}%;">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- ERROR -->
+
+    {% if error %}
+
+    <section class="error-card">
+
+        <strong>Prediction Error</strong>
+
+        <p>{{ error }}</p>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- PROJECT INFO -->
+
+    <section class="project-info">
+
+        <div class="info-card">
+
+            <span>MODEL</span>
+            <strong>Logistic Regression</strong>
+
+        </div>
+
+        <div class="info-card">
+
+            <span>FRAMEWORK</span>
+            <strong>Scikit-learn</strong>
+
+        </div>
+
+        <div class="info-card">
+
+            <span>BACKEND</span>
+            <strong>Python + Flask</strong>
+
+        </div>
+
+        <div class="info-card">
+
+            <span>DEVELOPER</span>
+            <strong>Vijay Bhargav</strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- DISCLAIMER -->
+
+    <section class="disclaimer">
+
+        <span>ⓘ</span>
+
+        <p>
+            This application is developed for educational and
+            demonstration purposes. The prediction generated by
+            this machine learning model should not be considered
+            medical advice or a clinical diagnosis.
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-brand">
+
+        <img src="{{ url_for('static', filename='images/viharatech_logo.jpeg') }}"
+             alt="ViharaTech">
+
+        <span>ViharaTech</span>
+
+    </div>
+
+    <div>
+        Heart Disease Prediction • Machine Learning Project
+    </div>
+
+    <div>
+        © 2026 Sakhamuri Vijay Bhargav
+    </div>
+
+</footer>
+
+
+</body>
+</html>
