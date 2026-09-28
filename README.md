@@ -587,7 +587,15 @@ containing:
 ```text
 web: gunicorn app:app
 ```
+# 🌐 Project Deployment
 
+### Live Demo
+
+🔗 **[https://house-price-prediction-using-ml-model-mlr.onrender.com]**
+
+### GitHub Repository
+
+🔗 **[https://github.com/Svijay2706/House-Price-Prediction-Using-ML-Model-MLR-]**
 ---
 
 # 🛠️ Technologies Used
