@@ -591,11 +591,11 @@ web: gunicorn app:app
 
 ### Live Demo
 
-🔗 **[https://house-price-prediction-using-ml-model-mlr.onrender.com]**
+🔗 **[https://heart-disease-prediction-y5k5.onrender.com]**
 
 ### GitHub Repository
 
-🔗 **[https://github.com/Svijay2706/House-Price-Prediction-Using-ML-Model-MLR-]**
+🔗 **[https://github.com/Svijay2706/Heart_disease_prediction]**
 ---
 
 # 🛠️ Technologies Used
